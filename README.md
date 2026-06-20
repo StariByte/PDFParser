@@ -63,11 +63,15 @@ This project is part of my ongoing software development learning journey and ser
 # Example Output:
 
 \---------------
+
 PDF Analyzer v1.2
+
 \---------------
+
 File: lorem.txt
 
 Lines: 14
 Words: 207
 Characters: 1131
+
 \---------------

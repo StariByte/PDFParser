@@ -1,12 +1,12 @@
-PDF Analyzer
+###PDF Analyzer
 
-Overview
+##Overview
 
 PDF Analyzer is a personal project that began as a text file analysis tool written in C++.
 
 The long-term goal is to create an application that can extract, analyze, and eventually read PDF documents aloud. This first version focuses on learning file processing, text analysis, and software development fundamentals.
 
-Current Features (v1.2)
+#Current Features (v1.2)
 
 - User-selected text file input
 - File validation and error handling
@@ -18,14 +18,14 @@ Current Features (v1.2)
 - Export analysis report to a user-named text file
 - Output file creation validation
 
-Recent Updates
+##Recent Updates
 
-Version 1.1
+#Version 1.1
 - Added user-selected input files
 - Improved report formatting
 - Added additional test files
 
-Version 1.2
+#Version 1.2
 - Refactored analysis functions to return values
 - Added displayReport() function
 - Added saveReport() function
@@ -33,41 +33,41 @@ Version 1.2
 - Added user-defined output filenames
 - Added output file validation
 
-Technologies
+##Technologies
 
 - C++
 - File I/O
 - Git
 - GitHub
 
-Future Plans
+##Future Plans
 
-Version 2
+#Version 2
 - Python Implementation
 - Improved text analysis
 
-Version 3
+#Version 3
 - PDF text extraction
 - Multi-page document support
 
-Version 4
+#Version 4
 - Text-to-Speech functionality
 
-Version 5
+#Version 5
 - Android application written in Kotlin
 
-Purpose
+##Purpose
 
 This project is part of my ongoing software development learning journey and serves as a platform for practicing programming concepts, file processing, and application design.
 
-Example Output:
+###Example Output:
 
----------------
+\---------------
 PDF Analyzer v1.2
----------------
+\---------------
 File: lorem.txt
 
 Lines: 14
 Words: 207
 Characters: 1131
----------------
+\---------------

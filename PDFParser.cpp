@@ -3,39 +3,54 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <iomanip>
 using namespace std;
 
-fstream getFileName();
-void lineCounter(fstream&);
-void wordCounter(fstream&);
-void characterCounter(fstream&);
+//function prototypes
+string getFileName();
+int lineCounter(fstream&);
+int wordCounter(fstream&);
+int characterCounter(fstream&);
+void displayReport(string, int, int, int);
+void saveReport(string, int, int, int);
+
 
 int main()
 {
-    string fileName = "lorem.txt";
-    fstream inFile(fileName, ios::in);
-    fstream userFile;
 
-    userFile = getFileName();
+    string fileName;
+    int words, lines, chs;
 
-  //  if (userFile.fail())
-   // {
-     //   cout << "Sorry could not open that file, it may not exist. Please enter another name." << endl;
-       // userFile = getFileName();
-    //}
+    //get input file name
+    fileName = getFileName();
 
-   // cout << "Filename : " << fileName << endl;
+    fstream userFile(fileName, ios::in);
 
+    //check that it opened successfully, if not reenter
+    while (userFile.fail())
+    {
+        cout << "Error, the file name either is not in this directory or it does not exist. Please enter a filename: " << endl;
+        getline(cin, fileName);
+        userFile.clear();
+        userFile.open(fileName, ios::in);
 
-    lineCounter(userFile);
-    wordCounter(userFile);
-    characterCounter(userFile);
+    }
 
+    cout << endl;
+    // call counter functions for report
+    lines = lineCounter(userFile);
+    words = wordCounter(userFile);
+    chs = characterCounter(userFile);
+
+    //display parsing report on screen and save to an output file
+    displayReport(fileName, lines, words, chs);
+    saveReport(fileName, lines, words, chs);
     return 0;
 
 }
 
-void lineCounter(fstream& file)
+// function counts lines by newline character
+int lineCounter(fstream& file)
 {
     int totalLine = 0;
     string line;
@@ -45,10 +60,11 @@ void lineCounter(fstream& file)
         totalLine++;
     }
 
-    cout << "Total Lines: " << totalLine << endl;
+    return totalLine;
 }
 
-void wordCounter(fstream& file)
+//counts words space delimiter
+int wordCounter(fstream& file)
 {
     file.clear();
     file.seekg(0);
@@ -60,10 +76,11 @@ void wordCounter(fstream& file)
         total++;
     }
 
-    cout << "Total Words: " << total << endl;
+    return total;
 }
 
-void characterCounter(fstream& file)
+//counts full characters including whitespace
+int characterCounter(fstream& file)
 {
     file.clear();
     file.seekg(0);
@@ -76,29 +93,87 @@ void characterCounter(fstream& file)
         total++;
     }
 
-    cout << "Total characters: " << total << endl;
+    return total;
 }
 
-fstream getFileName()
+//request the input filename from user
+string getFileName()
 {
     string file;
     cout << "Please enter a filename that you wish to work with: ";
     getline(cin, file);
 
-    fstream userfile(file, ios::in);
+    return file;
+}
 
-    while (userfile.fail())
+//displays the counter report on the screen, takes the returns
+//from the counter functions as parameters
+void displayReport(string file, int line, int word, int chars)
+{
+    for (int index = 0; index < 15; index++)
     {
-        cout << "Error, the file name either is not in this directory or it does not exist. Please enter a filename: " << endl;
-        getline(cin, file);
-        userfile.clear();
-        userfile.open(file, ios::in);
-
+        cout << "-";
     }
 
+    cout << "\n\nPDF Analyzer v1.1\n\n";
 
-    cout << "File name is: " << file << endl;
+    for (int index = 0; index < 15; index++)
+    {
+        cout << "-";
+    }
+    cout << endl << endl;
 
+    cout << "File: " << file << endl;
+    cout << "Lines: " << line << endl;
+    cout << "Words: " << word << endl;
+    cout << "Characters: " << chars << endl << endl;
 
-    return userfile;
+    for (int index = 0; index < 15; index++)
+    {
+        cout << "-";
+    }
+}
+
+//same as display report, but saves it in a new output file.
+void saveReport(string file, int line, int word, int chars)
+{
+    string name;
+
+    cout << "Please enter a name to save the report to: ";
+    getline(cin, name);
+
+    name += ".txt";
+
+    ofstream outFile(name, ios::out);
+
+    if (!outFile)
+    {
+        cout << "Error creating output file." << endl;
+        return;
+    }
+
+    for (int index = 0; index < 15; index++)
+    {
+        outFile << "-";
+    }
+
+    outFile << "\n\nPDF Analyzer v1.1\n\n";
+
+    for (int index = 0; index < 15; index++)
+    {
+        outFile << "-";
+    }
+    outFile << endl << endl;
+
+    outFile << "File: " << file << endl;
+    outFile << "Lines: " << line << endl;
+    outFile << "Words: " << word << endl;
+    outFile << "Characters: " << chars << endl << endl;
+
+    for (int index = 0; index < 15; index++)
+    {
+        outFile << "-";
+    }
+
+    cout << "Report saved to " << name << endl;
 }

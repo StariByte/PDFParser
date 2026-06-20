@@ -70,8 +70,11 @@ PDF Analyzer v1.2
 
 File: lorem.txt
 
+
 Lines: 14
+
 Words: 207
+
 Characters: 1131
 
 \---------------

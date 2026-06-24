@@ -6,8 +6,9 @@ PDF Analyzer is a personal project that began as a text file analysis tool writt
 
 The long-term goal is to create an application that can extract, analyze, and eventually read PDF documents aloud. This first version focuses on learning file processing, text analysis, and software development fundamentals.
 
-### Current Features (v1.2)
+### Current Features
 
+C++ Version (v1.2)
 - User-selected text file input
 - File validation and error handling
 - Display selected filename
@@ -17,6 +18,14 @@ The long-term goal is to create an application that can extract, analyze, and ev
 - Generate formatted console report
 - Export analysis report to a user-named text file
 - Output file creation validation
+
+Python Version (v1.0)
+- User-selected text file input
+- File validation using exception handling
+- Count lines
+- Count characters
+- Generate formatted report
+- Export analysis report to a user-named text file
 
 ## Recent Updates
 
@@ -33,18 +42,28 @@ The long-term goal is to create an application that can extract, analyze, and ev
 - Added user-defined output filenames
 - Added output file validation
 
+### Python Version 1.0
+- Implemented PDF Analyzer in Python
+- Added exception handling with try/except
+- Added analysis functions
+- Added report generation
+- Added report export functionality
+
 ## Technologies
 
 - C++
+- Python
 - File I/O
+- Exception Handling
 - Git
 - GitHub
 
 ## Future Plans
 
 ### Version 2
-- Python Implementation
 - Improved text analysis
+- Unique word counting
+- Paragraph analysis
 
 ### Version 3
 - PDF text extraction

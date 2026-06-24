@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="PDFParser.vcxproj" />
+  <Project Path="PDFParser.vcxproj" Id="db460524-b595-462a-bb20-48736b3a92ae" />
 </Solution>

@@ -83,7 +83,7 @@ This project is part of my ongoing software development learning journey and ser
 
 \---------------
 
-PDF Analyzer v1.2
+File Analyzer v1.2
 
 \---------------
 
